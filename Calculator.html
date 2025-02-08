@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    body{
+       font-family: Arial, Helvetica, sans-serif;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-color: rgb(102, 79, 251);
+       margin-top: 100px;
+    
+    }
+    .numbers{
+        display: grid;
+        grid-template-columns: repeat(4 ,1fr);
+        gap: 5px;
+        margin-top: 10px;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 8px;
+        padding-bottom: 20PX;
+        border-radius: 10px;
+        background-color: rgb(12, 12, 14);
+    }
+    .display1{
+      width: 100%;
+      height: 60px;
+      border-radius: 5px;
+      border: 2px solid;
+      border-color: rgb(10, 10, 10);
+     
+      text-align: right;
+      background-color: rgb(23, 21, 21);
+      font-size: xx-large;
+      color: white;
+    }
+    button{
+        width: 70px;
+        height: 70px;
+        font-size: x-large;
+        border-radius: 10px;
+        background-color: transparent;
+        cursor: pointer;
+        border: 2px solid yellow;
+        color: white;
+        
+    }
+    .rare{
+        background-color: rgb(196, 242, 45);
+        color: black;
+        font-size: xx-large;
+    }
+    .rare1{
+        background-color: rgb(196, 242, 45);
+        width: 400%;
+        color: black;
+    }
+   
+</style>
+<body>
+    <div id="calculator">
+        <input type="text" class="display1" id="display1" disabled/>
+        <div class="numbers">
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')" class="rare">+</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')" class="rare">-</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')" class="rare">*</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="display('.')" class="rare">.</button>
+            <button onclick="result()" class="rare">=</button>
+            <button onclick="display('/')" class="rare">/</button>
+            <button onclick="cleardisplay()" class="rare1"> Clear</button>
+        </div>
+    </div>
+</body>
+   <script>
+     const x=document.getElementById("display1");
+     function display(input){
+        x.value+=input;
+     }
+     function cleardisplay() {
+        x.value="";
+     }
+     function result(){
+        try{
+            x.value=eval(x.value);
+        }
+        catch(error){
+            x.value="error";
+        }
+        
+     }
+   </script>
+</html>
